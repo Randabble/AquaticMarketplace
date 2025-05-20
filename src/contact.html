@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Carlos Aquatics</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-menu navbar navbar-expand-lg d-flex align-items-center justify-content-between py-3">
+                <a href="index.html" class="main-logo d-flex align-items-center">
+                    <img src="assets/images/logo1.png" alt="Carlos Aquatics Logo" class="img-fluid me-3" style="max-height: 60px;">
+                </a>
+                <div class="search-bar border rounded-2 px-3 border-dark-subtle mx-3 flex-grow-1" style="max-width: 400px;">
+                    <form id="header-search-form" class="d-flex align-items-center" action="shop.html" method="get">
+                        <input type="text" class="form-control border-0 bg-transparent" name="search" placeholder="Search for guppies and plants..." />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <use xlink:href="#search"></use>
+                        </svg>
+                    </form>
+                </div>
+                <ul class="navbar-nav menu-list list-unstyled d-flex gap-3 mb-0 align-items-center">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="shop.html" class="nav-link">Shop</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="container-fluid"><hr class="m-0"></div>
+    </header>
+    <main>
+        <section class="contact-hero">
+            <div class="container text-center py-5">
+                <h1 class="display-3 mt-3">Contact Us</h1>
+                <p class="lead mt-3">Have questions or want to get in touch? We'd love to hear from you!</p>
+            </div>
+        </section>
+        <section class="contact-info py-5 bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="contact-card p-4 bg-white rounded shadow-sm">
+                            <div class="mb-2"><iconify-icon icon="ri:mail-line" class="fs-1 text-primary"></iconify-icon></div>
+                            <h4>Email</h4>
+                            <p class="text-muted">contact@carlosaquatics.com</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="contact-card p-4 bg-white rounded shadow-sm">
+                            <div class="mb-2"><iconify-icon icon="ri:map-pin-line" class="fs-1 text-primary"></iconify-icon></div>
+                            <h4>Location</h4>
+                            <p class="text-muted">Seattle, WA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="contact-form-section py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <form class="contact-form p-4 bg-light rounded shadow-sm" action="#" method="POST">
+                            <h2 class="mb-4 text-center">Send Us a Message</h2>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer id="footer" class="py-5 bg-light border-top">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-md-3 text-center text-md-start mb-4 mb-md-0">
+                    <img src="assets/images/logo1.png" alt="Carlos Aquatics Logo" style="max-width: 120px;">
+                    <p class="fs-6 mt-3 text-muted">Premium guppies & aquatic plants. Dive into quality!</p>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="shop.html" class="nav-link">Shop</a></li>
+                        <li><a href="about.html" class="nav-link">About Us</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="mb-3">Help Center</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="faq.html" class="nav-link">FAQs</a></li>
+                        <li><a href="shipping.html" class="nav-link">Shipping</a></li>
+                        <li><a href="returns.html" class="nav-link">Returns</a></li>
+                        <li><a href="privacy.html" class="nav-link">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="mb-3">Newsletter</h5>
+                    <form id="footer-newsletter-form" class="d-flex mb-2">
+                        <input type="email" class="form-control rounded-start" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary rounded-end">Subscribe</button>
+                    </form>
+                    <div class="social-links d-flex gap-2 mt-2">
+                        <a href="#" target="_blank"><iconify-icon class="social-icon" icon="ri:facebook-fill"></iconify-icon></a>
+                        <a href="#" target="_blank"><iconify-icon class="social-icon" icon="ri:instagram-fill"></iconify-icon></a>
+                        <a href="#" target="_blank"><iconify-icon class="social-icon" icon="ri:youtube-fill"></iconify-icon></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col text-center text-muted">
+                    <small>&copy; <span id="current-year"></span> Carlos Aquatics. All rights reserved.</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html> 

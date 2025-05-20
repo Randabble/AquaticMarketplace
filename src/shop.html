@@ -11,16 +11,30 @@
 <body>
     <header class="site-header">
         <div class="container">
-            <a href="index.html" class="logo">
-                <img src="assets/images/logo.png" alt="Carlos Aquatics Logo">
-            </a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="cart.html" class="cart-link">Cart <span class="cart-count">0</span></a></li>
+            <nav class="main-menu navbar navbar-expand-lg d-flex align-items-center justify-content-between py-3">
+                <a href="index.html" class="main-logo d-flex align-items-center">
+                    <img src="assets/images/logo1.png" alt="Carlos Aquatics Logo" class="img-fluid me-3" style="max-height: 60px;">
+                </a>
+                <div class="search-bar border rounded-2 px-3 border-dark-subtle mx-3 flex-grow-1" style="max-width: 400px;">
+                    <form id="header-search-form" class="d-flex align-items-center" action="shop.html" method="get">
+                        <input type="text" class="form-control border-0 bg-transparent" name="search" placeholder="Search for guppies and plants..." />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <use xlink:href="#search"></use>
+                        </svg>
+                    </form>
+                </div>
+                <ul class="navbar-nav menu-list list-unstyled d-flex gap-3 mb-0 align-items-center">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="shop.html" class="nav-link active">Shop</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="account.html" class="nav-link"><iconify-icon icon="healthicons:person" class="fs-4"></iconify-icon></a></li>
+                    <li class="nav-item"><a href="wishlist.html" class="nav-link"><iconify-icon icon="mdi:heart" class="fs-4"></iconify-icon></a></li>
+                    <li class="nav-item"><a href="cart.html" class="nav-link position-relative"><iconify-icon icon="mdi:cart" class="fs-4"></iconify-icon><span class="position-absolute translate-middle badge rounded-circle bg-primary pt-2 cart-count">0</span></a></li>
                 </ul>
             </nav>
         </div>
+        <div class="container-fluid"><hr class="m-0"></div>
     </header>
 
     <main>
@@ -37,7 +51,7 @@
 
         <section class="products">
             <div class="container">
-                <div class="product-grid">
+                <div class="product-grid modern-product-grid">
                     <!-- Products will be dynamically loaded here -->
                 </div>
             </div>

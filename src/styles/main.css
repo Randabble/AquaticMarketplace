@@ -553,3 +553,206 @@ body {
     transform: translateY(-50%);
     color: var(--secondary-color);
 }
+
+.modern-product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.modern-product-card {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    background: #131313;
+    border: 2px solid #C72464;
+    border-radius: 40px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.modern-product-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 16px 40px rgba(199,36,100,0.18);
+    border-color: #FF6D00;
+}
+
+.modern-product-card .image {
+    background-color: #21151a;
+    border-radius: 2.5em 2.5em 0em 0em;
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+}
+
+.modern-product-card .image svg,
+.modern-product-card .image img {
+    width: 75%;
+    height: 120px;
+    object-fit: contain;
+}
+
+.modern-product-card .productTitle {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #C72464;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 10px;
+}
+
+.modern-product-card .cost {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #FF6D00;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.modern-product-card .radio-inputs {
+    position: relative;
+    margin-top: 20px;
+    margin-left: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 0.5rem;
+    background-color: #21151a;
+    box-sizing: border-box;
+    box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+    padding: 0.25rem;
+    width: 210px;
+    font-size: 14px;
+}
+
+.modern-product-card .radio-inputs .radio {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.modern-product-card .radio-inputs .radio input {
+    display: none;
+}
+
+.modern-product-card .radio-inputs .radio .name {
+    display: flex;
+    font-weight: 600;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border: none;
+    padding: .5rem 0;
+    color: #C72464;
+    transition: all .15s ease-in-out;
+}
+
+.modern-product-card .radio-inputs .radio input:checked + .name {
+    background-color: #371800;
+    color: #FF6D00;
+    font-weight: 600;
+}
+
+.modern-product-card .addtocart {
+    width: 100%;
+    margin-top: 19px;
+    padding: 15px;
+    border: none;
+    border-top: 2px solid #C72464;
+    background-color: #131313;
+    color: #C72464;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 0px 0px 38px 38px;
+    transition: 0.2s;
+}
+
+.modern-product-card .addtocart:hover {
+    background-color: #C72464;
+    border-top: 2px solid transparent;
+    color: #111111;
+}
+
+@media (max-width: 600px) {
+    .modern-product-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .modern-product-card {
+        max-width: 100%;
+        border-radius: 24px;
+    }
+}
+
+/* About & Contact Page Styles */
+.about-hero, .contact-hero {
+  background: linear-gradient(90deg, #e3f2fd 0%, #f8bbd0 100%);
+  border-radius: 0 0 2rem 2rem;
+}
+.about-hero img, .contact-hero img {
+  margin-bottom: 1rem;
+}
+.about-mission, .about-team, .contact-info, .contact-form-section {
+  margin-bottom: 2rem;
+}
+.about-team .rounded-circle {
+  border: 4px solid #C72464;
+  box-shadow: 0 4px 16px rgba(199,36,100,0.08);
+}
+.about-team h4, .contact-card h4 {
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+.contact-card {
+  border: 1px solid #eee;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.contact-card:hover {
+  box-shadow: 0 8px 32px rgba(0,123,255,0.10);
+  border-color: #007bff;
+}
+.contact-form-section .contact-form {
+  background: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+}
+.contact-form .form-label {
+  font-weight: 500;
+}
+.contact-form .btn-primary {
+  background: #C72464;
+  border: none;
+}
+.contact-form .btn-primary:hover {
+  background: #FF6D00;
+}
+/* Navbar active link */
+.menu-list .nav-link.active, .menu-list .nav-link:focus {
+  color: #C72464 !important;
+  font-weight: 600;
+  border-bottom: 2px solid #C72464;
+}
+.menu-list .nav-link:hover {
+  color: #FF6D00 !important;
+}
+/* Footer tweaks */
+#footer {
+  border-radius: 2rem 2rem 0 0;
+  margin-top: 3rem;
+}
+#footer .nav-link {
+  color: #343a40;
+  opacity: 0.85;
+}
+#footer .nav-link:hover {
+  color: #C72464;
+  opacity: 1;
+}
