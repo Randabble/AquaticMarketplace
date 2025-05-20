@@ -1,0 +1,88 @@
+Carlos Aquatics AI Website Project Markup File
+
+This project defines the specification for an AI-driven static website generator (e.g., Cursore) to build carlosaquatics.com, an online marketplace for premium guppies and aquatic plants. The markup file describes project metadata, file structure, UI components, JavaScript behavior (cart management, product rendering), and step-by-step tasks. Cursore’s AI will read this .txt file and generate all HTML, CSS, and JavaScript without manual coding.
+
+---
+
+PROJECT METADATA:
+Name: CarlosAquatics
+Domain: carlosaquatics.com
+Output Directory: src/
+Description: Framework-free marketplace built with AI automation, using plain HTML, CSS, and JS.
+
+FILE STRUCTURE:
+src/
+index.html         Home page with hero section and featured products
+shop.html          Product listing page with grid and Add to Cart buttons
+product.html       Product detail page displaying images, description, price, quantity
+cart.html          Cart review page showing items, quantities, totals, Checkout button
+styles/main.css    Core stylesheet with CSS variables, grid layouts, responsive rules
+scripts/shop.js    Loads product array and renders product cards on shop.html
+scripts/cart.js    Manages cart operations and localStorage persistence
+assets/images/     Holds product photos (e.g., guppy-redtail.jpg), logo.png, favicon.ico
+
+UI COMPONENTS (to be reused by AI):
+• Header:
+Logo link to home, navigation links for Shop and Cart (dynamic count)
+• Footer:
+Copyright notice with current year and brand name
+• Hero Banner:
+Welcome message, brief tagline, Shop Now button
+• Product Card:
+Image, name, price, Add to Cart button
+
+DATA & LOGIC:
+Product Data Source:
+Define JS array: products = \[{ id, name, price, image, description }, …]
+Expose via window\.products for rendering
+
+Shop Rendering (shop.js):
+On DOMContentLoaded, loop products, inject product-card HTML into .product-list
+
+Product Detail (product.html + script):
+Parse URL ?id=123, find matching product, populate detail template
+
+Cart Management (cart.js):
+Functions: addToCart(id), removeFromCart(id), updateQuantity(id, qty)
+Store cart state in localStorage under key carlosaquatics\_cart
+Update header count and cart page totals on changes
+
+Also use the happybox and waggy folders as reference because they are already made templates of websites
+
+TASK LIST (execute in order):
+
+1. Setup
+
+   * Create folders and files per FILE STRUCTURE
+   * Copy base HTML boilerplate into pages
+   * Link CSS and JS assets
+2. Styling
+
+   * Define CSS variables (--color-primary: aquamarine; --color-accent: coral;)
+   * Set up grid and responsive breakpoints at 600px and 900px
+   * Style buttons and form elements
+3. Data
+
+   * Implement products array in shop.js
+4. Render Shop
+
+   * Build product listing logic
+5. Render Product Detail
+
+   * Implement detail page logic with URL parsing
+6. Cart Functionality
+
+   * Write cart API functions and integrate with UI
+7. Live Cart Count
+
+   * Sync header count across pages
+8. Testing & Validation
+
+   * Validate HTML/CSS, test responsiveness, ensure cart persistence
+9. Deployment
+
+   * Push src/ to static host, point domain DNS
+
+---
+
+End of markup file. Feed this .txt into your AI website generator to scaffold and implement the entire CarlosAquatics.com site with minimal manual coding.

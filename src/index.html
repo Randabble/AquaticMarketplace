@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Aquatics - Premium Guppies & Aquatic Plants</title>
+    <meta name="description" content="Premium guppies and aquatic plants marketplace">
+    
+    <!-- CSS Dependencies -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/vendor.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- SVG Icons -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="search" viewBox="0 0 24 24">
+            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        </symbol>
+        <symbol id="arrow-right" viewBox="0 0 24 24">
+            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+        </symbol>
+    </svg>
+
+    <!-- Preloader -->
+    <div class="preloader-wrapper">
+        <div class="preloader"></div>
+    </div>
+
+    <!-- Cart Offcanvas -->
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart" aria-labelledby="My Cart">
+        <div class="offcanvas-header justify-content-center">
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="order-md-last">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-primary">Your cart</span>
+                    <span class="badge bg-primary rounded-circle pt-2" id="cart-count">0</span>
+                </h4>
+                <ul class="list-group mb-3" id="cart-items">
+                    <!-- Cart items will be dynamically loaded here -->
+                </ul>
+                <div class="d-flex justify-content-between mb-3">
+                    <span class="fw-bold">Total (USD)</span>
+                    <strong id="cart-total">$0.00</strong>
+                </div>
+                <button class="w-100 btn btn-primary btn-lg" type="button" onclick="window.location.href='cart.html'">Continue to checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Offcanvas -->
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasSearch" aria-labelledby="Search">
+        <div class="offcanvas-header justify-content-center">
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="order-md-last">
+                <h4 class="text-primary text-uppercase mb-3">Search</h4>
+                <div class="search-bar border rounded-2 border-dark-subtle">
+                    <form id="search-form" class="text-center d-flex align-items-center" action="shop.html" method="get">
+                        <input type="text" class="form-control border-0 bg-transparent" name="search" placeholder="Search for guppies and plants..." />
+                        <iconify-icon icon="tabler:search" class="fs-4 me-3"></iconify-icon>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container py-2">
+            <div class="row py-4 pb-0 pb-sm-4 align-items-center">
+                <div class="col-sm-4 col-lg-3 text-center text-sm-start">
+                    <div class="main-logo">
+                        <a href="index.html">
+                            <img src="assets/images/logo1.png" alt="Carlos Aquatics Logo" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-5 d-none d-lg-block">
+                    <div class="search-bar border rounded-2 px-3 border-dark-subtle">
+                        <form id="header-search-form" class="text-center d-flex align-items-center" action="shop.html" method="get">
+                            <input type="text" class="form-control border-0 bg-transparent" name="search" placeholder="Search for guppies and plants..." />
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <use xlink:href="#search"></use>
+                            </svg>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
+                    <div class="support-box text-end d-none d-xl-block">
+                        <span class="fs-6 secondary-font text-muted">Phone</span>
+                        <h5 class="mb-0">+1-234-567-8900</h5>
+                    </div>
+                    <div class="support-box text-end d-none d-xl-block">
+                        <span class="fs-6 secondary-font text-muted">Email</span>
+                        <h5 class="mb-0">contact@carlosaquatics.com</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <hr class="m-0">
+        </div>
+
+        <!-- Main Navigation -->
+        <div class="container">
+            <nav class="main-menu d-flex navbar navbar-expand-lg">
+                <div class="d-flex d-lg-none align-items-end mt-3">
+                    <ul class="d-flex justify-content-end list-unstyled m-0">
+                        <li>
+                            <a href="account.html" class="mx-3">
+                                <iconify-icon icon="healthicons:person" class="fs-4"></iconify-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="wishlist.html" class="mx-3">
+                                <iconify-icon icon="mdi:heart" class="fs-4"></iconify-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart">
+                                <iconify-icon icon="mdi:cart" class="fs-4 position-relative"></iconify-icon>
+                                <span class="position-absolute translate-middle badge rounded-circle bg-primary pt-2" id="header-cart-count">0</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSearch">
+                                <iconify-icon icon="tabler:search" class="fs-4"></iconify-icon>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+                    <div class="offcanvas-header justify-content-center">
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+
+                    <div class="offcanvas-body justify-content-between">
+                        <select class="filter-categories border-0 mb-0 me-5" id="category-filter">
+                            <option value="">Shop by Category</option>
+                            <option value="guppies">Guppies</option>
+                            <option value="plants">Aquatic Plants</option>
+                            <option value="equipment">Equipment</option>
+                            <option value="food">Fish Food</option>
+                        </select>
+
+                        <ul class="navbar-nav menu-list list-unstyled d-flex gap-md-3 mb-0">
+                            <li class="nav-item">
+                                <a href="index.html" class="nav-link active">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="shop.html" class="nav-link">Shop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="about.html" class="nav-link">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="contact.html" class="nav-link">Contact</a>
+                            </li>
+                        </ul>
+
+                        <div class="d-none d-lg-flex align-items-end">
+                            <ul class="d-flex justify-content-end list-unstyled m-0">
+                                <li>
+                                    <a href="account.html" class="mx-3">
+                                        <iconify-icon icon="healthicons:person" class="fs-4"></iconify-icon>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="wishlist.html" class="mx-3">
+                                        <iconify-icon icon="mdi:heart" class="fs-4"></iconify-icon>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart">
+                                        <iconify-icon icon="mdi:cart" class="fs-4 position-relative"></iconify-icon>
+                                        <span class="position-absolute translate-middle badge rounded-circle bg-primary pt-2" id="nav-cart-count">0</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Banner Section -->
+        <section id="banner" style="background: #F9F3EC;">
+            <div class="container">
+                <div class="swiper main-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide py-5">
+                            <div class="row banner-content align-items-center">
+                                <div class="img-wrapper col-md-5">
+                                    <img src="assets/images/heroimage.jpg" class="img-fluid" alt="Premium Guppies">
+                                </div>
+                                <div class="content-wrapper col-md-7 p-5 mb-5">
+                                    <div class="secondary-font text-primary text-uppercase mb-4">Premium Quality</div>
+                                    <h2 class="banner-title display-1 fw-normal">Discover Our <span class="text-primary">Premium Guppies</span></h2>
+                                    <a href="shop.html" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
+                                        Shop Now
+                                        <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
+                                            <use xlink:href="#arrow-right"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add more slides as needed -->
+                    </div>
+                    <div class="swiper-pagination mb-5"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section id="categories">
+            <div class="container my-3 py-5">
+                <div class="row my-5">
+                    <div class="col text-center">
+                        <a href="shop.html?category=guppies" class="categories-item">
+                            <iconify-icon class="category-icon" icon="ph:fish"></iconify-icon>
+                            <h5>Guppies</h5>
+                        </a>
+                    </div>
+                    <div class="col text-center">
+                        <a href="shop.html?category=plants" class="categories-item">
+                            <iconify-icon class="category-icon" icon="ph:leaf"></iconify-icon>
+                            <h5>Aquatic Plants</h5>
+                        </a>
+                    </div>
+                    <div class="col text-center">
+                        <a href="shop.html?category=equipment" class="categories-item">
+                            <iconify-icon class="category-icon" icon="ph:gear"></iconify-icon>
+                            <h5>Equipment</h5>
+                        </a>
+                    </div>
+                    <div class="col text-center">
+                        <a href="shop.html?category=food" class="categories-item">
+                            <iconify-icon class="category-icon" icon="ph:bowl-food"></iconify-icon>
+                            <h5>Fish Food</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products Section -->
+        <section id="featured-products" class="my-5 overflow-hidden">
+            <div class="container pb-5">
+                <div class="section-header d-md-flex justify-content-between align-items-center mb-3">
+                    <h2 class="display-3 fw-normal">Featured Products</h2>
+                    <div>
+                        <a href="shop.html" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
+                            View All
+                            <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
+                                <use xlink:href="#arrow-right"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="products-carousel swiper">
+                    <div class="swiper-wrapper" id="featured-products-grid">
+                        <!-- Products will be dynamically loaded here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section id="newsletter" style="background: url('assets/images/ripple-vert-crop.jpg') no-repeat;">
+            <div class="container">
+                <div class="row my-5 py-5">
+                    <div class="offset-md-3 col-md-6 my-5">
+                        <h2 class="display-3 fw-normal text-center">Get 20% Off on <span class="text-primary">First Purchase</span></h2>
+                        <form id="newsletter-form">
+                            <div class="mb-3">
+                                <input type="email" class="form-control form-control-lg" name="email" id="email" placeholder="Enter Your Email Address" required>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-dark btn-lg rounded-1">Subscribe Now</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="my-5">
+        <div class="container py-5 my-5">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="footer-menu">
+                        <img src="assets/images/logo1.png" alt="Carlos Aquatics Logo">
+                        <p class="blog-paragraph fs-6 mt-3">Subscribe to our newsletter to get updates about our premium guppies and aquatic plants.</p>
+                        <div class="social-links">
+                            <ul class="d-flex list-unstyled gap-2">
+                                <li class="social">
+                                    <a href="#" target="_blank">
+                                        <iconify-icon class="social-icon" icon="ri:facebook-fill"></iconify-icon>
+                                    </a>
+                                </li>
+                                <li class="social">
+                                    <a href="#" target="_blank">
+                                        <iconify-icon class="social-icon" icon="ri:instagram-fill"></iconify-icon>
+                                    </a>
+                                </li>
+                                <li class="social">
+                                    <a href="#" target="_blank">
+                                        <iconify-icon class="social-icon" icon="ri:youtube-fill"></iconify-icon>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="footer-menu">
+                        <h3>Quick Links</h3>
+                        <ul class="menu-list list-unstyled">
+                            <li class="menu-item">
+                                <a href="index.html" class="nav-link">Home</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="shop.html" class="nav-link">Shop</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="about.html" class="nav-link">About Us</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="contact.html" class="nav-link">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="footer-menu">
+                        <h3>Help Center</h3>
+                        <ul class="menu-list list-unstyled">
+                            <li class="menu-item">
+                                <a href="faq.html" class="nav-link">FAQs</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="shipping.html" class="nav-link">Shipping</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="returns.html" class="nav-link">Returns</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="privacy.html" class="nav-link">Privacy Policy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div>
+                        <h3>Our Newsletter</h3>
+                        <p class="blog-paragraph fs-6">Subscribe to get updates about our premium products.</p>
+                        <div class="search-bar border rounded-pill border-dark-subtle px-2">
+                            <form id="footer-newsletter-form" class="text-center d-flex align-items-center">
+                                <input type="email" class="form-control border-0 bg-transparent" placeholder="Enter your email" required />
+                                <button type="submit" class="btn btn-link p-0">
+                                    <iconify-icon class="send-icon" icon="tabler:send"></iconify-icon>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="footer-bottom">
+        <div class="container">
+            <hr class="m-0">
+            <div class="row mt-3">
+                <div class="col-md-6 copyright">
+                    <p class="secondary-font">&copy; <span id="current-year"></span> Carlos Aquatics. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="scripts/vendor.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/shop.js"></script>
+    <script src="scripts/cart.js"></script>
+</body>
+</html>

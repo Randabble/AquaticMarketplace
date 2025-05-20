@@ -1,0 +1,233 @@
+/* Bootstrap Overrides */
+.navbar-toggler {
+    border: none;
+    padding: 0;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* Swiper Overrides */
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: #dee2e6;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--primary-color);
+}
+
+/* Iconify Overrides */
+iconify-icon {
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+/* Offcanvas Overrides */
+.offcanvas {
+    background-color: #fff;
+}
+
+.offcanvas-backdrop.show {
+    opacity: 0.5;
+}
+
+/* Form Overrides */
+.form-control:focus {
+    box-shadow: none;
+    border-color: var(--primary-color);
+}
+
+.form-select:focus {
+    box-shadow: none;
+    border-color: var(--primary-color);
+}
+
+/* Button Overrides */
+.btn:focus {
+    box-shadow: none;
+}
+
+.btn-check:focus + .btn,
+.btn:focus {
+    box-shadow: none;
+}
+
+/* Badge Overrides */
+.badge {
+    font-weight: 500;
+}
+
+/* List Group Overrides */
+.list-group-item {
+    border-color: #dee2e6;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.list-group-item:last-child {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Card Overrides */
+.card {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card-img-top {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/* Modal Overrides */
+.modal-content {
+    border: none;
+    border-radius: 0;
+}
+
+.modal-header {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.modal-footer {
+    border-top: 1px solid #dee2e6;
+}
+
+/* Dropdown Overrides */
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 0;
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+    background-color: var(--light-color);
+    color: var(--primary-color);
+}
+
+/* Alert Overrides */
+.alert {
+    border: none;
+    border-radius: 0;
+}
+
+/* Tooltip Overrides */
+.tooltip {
+    font-size: 0.875rem;
+}
+
+.tooltip-inner {
+    background-color: var(--dark-color);
+    border-radius: 0;
+}
+
+/* Popover Overrides */
+.popover {
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Progress Overrides */
+.progress {
+    height: 0.5rem;
+    border-radius: 0;
+}
+
+/* Spinner Overrides */
+.spinner-border {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-width: 0.2em;
+}
+
+/* Toast Overrides */
+.toast {
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Pagination Overrides */
+.page-link {
+    border: none;
+    color: var(--dark-color);
+    padding: 0.5rem 1rem;
+}
+
+.page-link:hover {
+    background-color: var(--light-color);
+    color: var(--primary-color);
+}
+
+.page-item.active .page-link {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Breadcrumb Overrides */
+.breadcrumb {
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: "›";
+}
+
+/* Accordion Overrides */
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: var(--primary-color);
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--light-color);
+    color: var(--primary-color);
+}
+
+/* Carousel Overrides */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+    opacity: 0.8;
+}
+
+.carousel-indicators {
+    margin-bottom: 0;
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--dark-color);
+    opacity: 0.5;
+}
+
+.carousel-indicators .active {
+    opacity: 1;
+    background-color: var(--primary-color);
+} 

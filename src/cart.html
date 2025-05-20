@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Carlos Aquatics</title>
+    <meta name="description" content="Review your cart and checkout">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Carlos Aquatics Logo">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="cart.html" class="cart-link">Cart <span class="cart-count">0</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="cart-section">
+            <div class="container">
+                <h1>Shopping Cart</h1>
+                
+                <div class="cart-container">
+                    <div class="cart-items">
+                        <!-- Cart items will be dynamically loaded here -->
+                    </div>
+                    
+                    <div class="cart-summary">
+                        <h2>Order Summary</h2>
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span class="cart-total">$0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping:</span>
+                            <span>Calculated at checkout</span>
+                        </div>
+                        <button class="btn btn-primary btn-checkout" onclick="checkout()">
+                            Proceed to Checkout
+                        </button>
+                        <a href="shop.html" class="btn btn-secondary">
+                            Continue Shopping
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Carlos Aquatics. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/shop.js"></script>
+    <script src="scripts/cart.js"></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Checkout function
+        function checkout() {
+            const cart = getCart();
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            
+            // Here you would typically redirect to a checkout page
+            // For now, we'll just show an alert
+            alert('Thank you for your order! This is a demo site, so no actual purchase will be made.');
+            saveCart([]); // Clear the cart
+            renderCart(); // Update the cart display
+        }
+    </script>
+    
+    <style>
+        .cart-section {
+            padding: 2rem 0;
+        }
+        
+        .cart-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .cart-summary {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            position: sticky;
+            top: 100px;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .btn-checkout {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        
+        .btn-secondary {
+            display: block;
+            text-align: center;
+            background: var(--color-border);
+            color: var(--color-text);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-text);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .cart-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .cart-summary {
+                position: static;
+            }
+        }
+    </style>
+</body>
+</html>

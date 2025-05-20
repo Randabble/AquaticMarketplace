@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Carlos Aquatics</title>
+    <meta name="description" content="Browse our collection of premium guppies and aquatic plants">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Carlos Aquatics Logo">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="cart.html" class="cart-link">Cart <span class="cart-count">0</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="shop-header">
+            <div class="container">
+                <h1>Our Products</h1>
+                <div class="category-filters">
+                    <button class="btn btn-filter active" data-category="all">All</button>
+                    <button class="btn btn-filter" data-category="guppies">Guppies</button>
+                    <button class="btn btn-filter" data-category="plants">Plants</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="products">
+            <div class="container">
+                <div class="product-grid">
+                    <!-- Products will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Carlos Aquatics. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/shop.js"></script>
+    <script src="scripts/cart.js"></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Category filter functionality
+        document.querySelectorAll('.btn-filter').forEach(button => {
+            button.addEventListener('click', (e) => {
+                // Update active button
+                document.querySelectorAll('.btn-filter').forEach(btn => btn.classList.remove('active'));
+                e.target.classList.add('active');
+                
+                const category = e.target.dataset.category;
+                const products = window.products;
+                const filteredProducts = category === 'all' 
+                    ? products 
+                    : products.filter(p => p.category === category);
+                
+                renderProducts(document.querySelector('.product-grid'), filteredProducts);
+            });
+        });
+    </script>
+</body>
+</html>
